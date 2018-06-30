@@ -64,6 +64,10 @@ public class ConsumerThread implements Runnable {
 		System.out.println("Checking assembly for worker:"+threadName);
 		
 		List<ProductPart> list = localMapWorkers.get(threadName);
+		if(null == list) {
+			list = new ArrayList<ProductPart>();
+			localMapWorkers.put(threadName,list);
+		}
 		int boltCount=0;
 		int machineCount=0;
 		for (ProductPart productPart : list) {
