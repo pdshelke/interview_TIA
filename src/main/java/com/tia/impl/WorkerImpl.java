@@ -16,7 +16,7 @@ public class WorkerImpl {
 	private LocalBlockingQueue<ProductPart> partsQueue;
 	Map<String, List<ProductPart>> mainMapWorkers = new HashMap<String, List<ProductPart>>();
 	
-	public WorkerImpl(int poolSize) throws InterruptedException  
+	public WorkerImpl(int poolSize)
      {  
 		partsQueue = new LocalBlockingQueue<ProductPart>();
 		System.out.println("Starting producer");

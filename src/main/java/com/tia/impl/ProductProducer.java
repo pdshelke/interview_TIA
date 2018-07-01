@@ -24,11 +24,6 @@ public class ProductProducer implements Runnable {
 
         for (ProductPart productPart : converyorBelt) {
         	loadProductOnConveyorBelt(productPart);
-            try {
-                //Thread.currentThread().sleep(2*1000);
-            } catch (Exception e) {
-            	e.printStackTrace();
-            }
         }
     }
     private List<ProductPart> loadPartsFromWarehouse() {
@@ -51,8 +46,6 @@ public class ProductProducer implements Runnable {
 	}
     
     public boolean loadProductOnConveyorBelt(ProductPart productPart) {
-		String threadName = Thread.currentThread().getName(); 
-
     	System.out.println("Loading part on conveyor:"+productPart);		
 		try {
 			partsQueue.put(productPart);
