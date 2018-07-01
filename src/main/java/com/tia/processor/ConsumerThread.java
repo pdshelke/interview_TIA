@@ -47,6 +47,7 @@ public class ConsumerThread implements Runnable {
 					System.out.println("Last element consumed...");
 				}
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			Thread.currentThread().interrupt();
