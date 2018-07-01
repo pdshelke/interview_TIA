@@ -17,6 +17,7 @@ public class LocalBlockingQueue<T> extends LinkedBlockingQueue<T> {
 	private final LinkedList<T> innerList = new LinkedList<T>();
     private boolean isEmpty = true;
 
+    @Override
     public synchronized T take() throws InterruptedException {
         while (isEmpty) {
             wait();
@@ -26,6 +27,7 @@ public class LocalBlockingQueue<T> extends LinkedBlockingQueue<T> {
         return element;
     }
 
+    @Override
     public synchronized void put(T element) {
         isEmpty = false;
         innerList.addLast(element);
