@@ -33,7 +33,10 @@ public class ConsumerThread implements Runnable {
 			while(true) {
 				System.out.println("finishedProductCount:"+ finishedProductCount);
 				if(finishedProductCount == FINAL_EXPECTED_PRODUCTS) {
-					break;
+					/*synchronized(this) {
+						notifyAll();
+					}*/
+					return;
 				}
 				ProductPart productPart;
 				synchronized(partsQueue){
@@ -69,7 +72,7 @@ public class ConsumerThread implements Runnable {
 					System.out.println("threadName:"+threadName+"Product count exceeded, putting product back to conveyor:"+ part);
 					synchronized(partsQueue){
 						partsQueue.put(part);
-						//Thread.currentThread().sleep(10*1000);
+						Thread.currentThread().sleep(2*1000);
 					}
 				}
 			}else{
@@ -77,9 +80,6 @@ public class ConsumerThread implements Runnable {
 				tmp.add(part);
 				localMapWorkers.put(threadName, tmp);
 			}
-			//checkIfProductAssembled(threadName,part);
-			/*System.out.println("Sleeping ");
-			Thread.currentThread().sleep(3*1000);*/
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -110,7 +110,10 @@ public class ConsumerThread implements Runnable {
 			if(boltCount == 2 && machineCount == 1) {
 				System.out.println("Worker " + threadName + " assembled product >>>>>>>>>>>>>>>>>>>>>>>");
 				++finishedProductCount;
-				Thread.sleep(5*1000);
+
+				/*synchronized(this) {
+					wait();
+				}*/
 				return ProductAssembled.YES;
 			}
 			if(boltCount > 2 || machineCount > 1) {
@@ -150,10 +153,13 @@ public class ConsumerThread implements Runnable {
 			System.out.println("threadName: "+threadName+ " bolt count:"+boltCount + " machineCount:"+machineCount);
 			if(boltCount == 2 && machineCount == 1) {
 				System.out.println("Worker " + threadName + " assembled product >>>>>>>>>>>>>>>>>>>>>>>");
-				++finishedProductCount;
-				Thread.sleep(5*1000);
 				list = new ArrayList<ProductPart>();
 				localMapWorkers.put(threadName,list);
+				++finishedProductCount;
+
+				/*synchronized(this) {
+					wait();
+				}*/
 			}
 		}catch(Exception e) {
 			e.printStackTrace();

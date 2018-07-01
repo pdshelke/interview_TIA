@@ -32,8 +32,13 @@ public class LocalBlockingQueue<T> extends LinkedBlockingQueue<T> {
     @Override
     public synchronized void put(T element) {
         isEmpty = false;
-        System.out.println("###Part:"+ (ProductPart)element);
         innerList.addLast(element);
+        try {
+			Thread.sleep(2*1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         notify();
     }
 }

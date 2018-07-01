@@ -1,6 +1,5 @@
 package com.tia.impl;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,9 +16,8 @@ public class WorkerImpl {
 	private LocalBlockingQueue<ProductPart> partsQueue;
 	Map<String, List<ProductPart>> mainMapWorkers = new HashMap<String, List<ProductPart>>();
 	
-	public WorkerImpl(int poolSize)
+	public WorkerImpl(int poolSize) throws InterruptedException
      {  
-		Date date1 = new Date();
 		partsQueue = new LocalBlockingQueue<ProductPart>();
 		System.out.println("Starting producer");
   		ProductProducer productProducer = new ProductProducer(partsQueue);
@@ -32,12 +30,5 @@ public class WorkerImpl {
 	   		 Thread t = new Thread(jobThread);
 	   		 t.start();
 	   	 }
-		Date date2 = new Date();
-
-		/*System.out.println("================================================");
-		System.out.println("Total bolts:6, machines:3, Products created:"+NUMBER_OF_WORKERS);
-		long secondsBetween = (date1.getTime() - date2.getTime()) / 1000;
-		System.out.println("Time taken to complete product assembling:"+ secondsBetween);
-		System.out.println("================================================");*/
      }
 }
