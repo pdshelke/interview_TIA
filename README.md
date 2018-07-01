@@ -10,6 +10,8 @@ Section 2:
 Section 3 
 a)	Sonar lint / EclEmma scan Snapshot : https://github.com/pdshelke/interview_TIA/blob/master/resources/TIA_SonarLint.JPG
 b)	Final Output Snapshot : https://github.com/pdshelke/interview_TIA/blob/master/resources/output.log
+https://github.com/pdshelke/interview_TIA/blob/master/resources/SuccessRun1.JPG
+https://github.com/pdshelke/interview_TIA/blob/master/resources/SuccessRun2.JPG
 c)	Junit Coverage Snapshot
 Note: (You can link directly to the raw version of an image from your image folder. Hence from section 1.1 if your GIT Link is : https://github.com/nescafe2018/intrvw_sq , then you can have the following text in your readme ![SonarLint] (https://github.com/nescafe2018/intrvw_sq/<Link of you image) )
 
