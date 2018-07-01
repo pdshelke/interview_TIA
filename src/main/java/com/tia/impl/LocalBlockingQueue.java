@@ -3,6 +3,8 @@ package com.tia.impl;
 import java.util.LinkedList;
 import java.util.concurrent.LinkedBlockingQueue;
 
+import com.tia.model.ProductPart;
+
 /**
  * @author Prashant Shelke
  *
@@ -30,6 +32,7 @@ public class LocalBlockingQueue<T> extends LinkedBlockingQueue<T> {
     @Override
     public synchronized void put(T element) {
         isEmpty = false;
+        System.out.println("###Part:"+ (ProductPart)element);
         innerList.addLast(element);
         notify();
     }

@@ -49,10 +49,6 @@ public class ProductProducer implements Runnable {
     	System.out.println("Loading part on conveyor:"+productPart);		
 		try {
 			partsQueue.put(productPart);
-			synchronized (partsQueue) {
-				partsQueue.notifyAll();
-			}
-			
 		} catch (Exception ie) {
 			Thread.currentThread().interrupt();
 			return false;
