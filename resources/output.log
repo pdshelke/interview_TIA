@@ -2,62 +2,70 @@ Starting producer
 Starting consumer
 ConveryorBelt items:[ProductPart [productName=bolt1, serialNumber=1], ProductPart [productName=machine1, serialNumber=1], ProductPart [productName=bolt2, serialNumber=2], ProductPart [productName=machine2, serialNumber=2], ProductPart [productName=bolt3, serialNumber=3], ProductPart [productName=machine3, serialNumber=3], ProductPart [productName=bolt4, serialNumber=4], ProductPart [productName=bolt5, serialNumber=5], ProductPart [productName=bolt6, serialNumber=6], null]
 Loading part on conveyor:ProductPart [productName=bolt1, serialNumber=1]
+###Part:ProductPart [productName=bolt1, serialNumber=1]
 Loading part on conveyor:ProductPart [productName=machine1, serialNumber=1]
+###Part:ProductPart [productName=machine1, serialNumber=1]
 Loading part on conveyor:ProductPart [productName=bolt2, serialNumber=2]
+###Part:ProductPart [productName=bolt2, serialNumber=2]
 Loading part on conveyor:ProductPart [productName=machine2, serialNumber=2]
+###Part:ProductPart [productName=machine2, serialNumber=2]
 Loading part on conveyor:ProductPart [productName=bolt3, serialNumber=3]
+###Part:ProductPart [productName=bolt3, serialNumber=3]
 Loading part on conveyor:ProductPart [productName=machine3, serialNumber=3]
+###Part:ProductPart [productName=machine3, serialNumber=3]
 Loading part on conveyor:ProductPart [productName=bolt4, serialNumber=4]
+###Part:ProductPart [productName=bolt4, serialNumber=4]
+finishedProductCount:0
 Loading part on conveyor:ProductPart [productName=bolt5, serialNumber=5]
-Loading part on conveyor:ProductPart [productName=bolt6, serialNumber=6]
-Loading part on conveyor:null
-threadName:Thread-1 partsQueue.size():0
-threadName:Thread-2 partsQueue.size():0
-ThreadThread-2 Consuming part:ProductPart [productName=machine1, serialNumber=1]
 ThreadThread-1 Consuming part:ProductPart [productName=bolt1, serialNumber=1]
-Worker:Thread-2 assembling product
-Worker:Thread-1 assembling product
-Checking assembly for worker:Thread-2
+###Part:ProductPart [productName=bolt5, serialNumber=5]
+Loading part on conveyor:ProductPart [productName=bolt6, serialNumber=6]
+###Part:ProductPart [productName=bolt6, serialNumber=6]
+Loading part on conveyor:null
+finishedProductCount:0
+###Part:null
+ThreadThread-1 Consuming part:ProductPart [productName=machine1, serialNumber=1]
 Checking assembly for worker:Thread-1
-threadName:Thread-3 partsQueue.size():0
-Sleeping 
-Sleeping 
-ThreadThread-3 Consuming part:ProductPart [productName=bolt2, serialNumber=2]
-Worker:Thread-3 assembling product
+finishedProductCount:0
+finishedProductCount:0
+ThreadThread-2 Consuming part:ProductPart [productName=bolt2, serialNumber=2]
+ThreadThread-3 Consuming part:ProductPart [productName=machine2, serialNumber=2]
+finishedProductCount:0
+ThreadThread-3 Consuming part:ProductPart [productName=bolt3, serialNumber=3]
 Checking assembly for worker:Thread-3
-Sleeping 
-ThreadThread-2 Consuming part:ProductPart [productName=bolt3, serialNumber=3]
-Worker:Thread-2 assembling product
+finishedProductCount:0
+threadName: Thread-3 bolt count:0 machineCount:1
+threadName: Thread-1 bolt count:1 machineCount:0
+ThreadThread-2 Consuming part:ProductPart [productName=machine3, serialNumber=3]
 Checking assembly for worker:Thread-2
-ThreadThread-3 Consuming part:ProductPart [productName=machine3, serialNumber=3]
-ThreadThread-1 Consuming part:ProductPart [productName=machine2, serialNumber=2]
-Worker:Thread-3 assembling product
+threadName: Thread-2 bolt count:1 machineCount:0
+Checking assembly for worker:Thread-1
 Checking assembly for worker:Thread-2
 Checking assembly for worker:Thread-3
-Checking assembly for worker:Thread-3
-Sleeping 
-Worker:Thread-1 assembling product
-Checking assembly for worker:Thread-1
-Sleeping 
-Checking assembly for worker:Thread-1
-Sleeping 
-ThreadThread-3 Consuming part:ProductPart [productName=bolt4, serialNumber=4]
-ThreadThread-1 Consuming part:ProductPart [productName=bolt5, serialNumber=5]
-ThreadThread-2 Consuming part:ProductPart [productName=bolt6, serialNumber=6]
-Worker:Thread-2 assembling product
+threadName: Thread-2 bolt count:1 machineCount:1
+threadName: Thread-1 bolt count:1 machineCount:1
+finishedProductCount:0
+threadName: Thread-3 bolt count:1 machineCount:1
+ThreadThread-2 Consuming part:ProductPart [productName=bolt4, serialNumber=4]
+finishedProductCount:0
 Checking assembly for worker:Thread-2
-Worker:Thread-1 assembling product
-Worker:Thread-3 assembling product
-Checking assembly for worker:Thread-1
+threadName: Thread-2 bolt count:1 machineCount:1
 Checking assembly for worker:Thread-2
-Checking assembly for worker:Thread-1
-Checking assembly for worker:Thread-3
-Worker Thread-1 assembled product >>>>>>>>>>>>>>>>>>>>>>>
+threadName: Thread-2 bolt count:2 machineCount:1
 Worker Thread-2 assembled product >>>>>>>>>>>>>>>>>>>>>>>
-Sleeping 
+finishedProductCount:0
+ThreadThread-3 Consuming part:ProductPart [productName=bolt6, serialNumber=6]
 Checking assembly for worker:Thread-3
-Sleeping 
+threadName: Thread-3 bolt count:1 machineCount:1
+Checking assembly for worker:Thread-3
+threadName: Thread-3 bolt count:2 machineCount:1
 Worker Thread-3 assembled product >>>>>>>>>>>>>>>>>>>>>>>
-Sleeping 
-ThreadThread-1 Consuming part:null
-Last element consumed...
+ThreadThread-1 Consuming part:ProductPart [productName=bolt5, serialNumber=5]
+Checking assembly for worker:Thread-1
+threadName: Thread-1 bolt count:1 machineCount:1
+Checking assembly for worker:Thread-1
+threadName: Thread-1 bolt count:2 machineCount:1
+Worker Thread-1 assembled product >>>>>>>>>>>>>>>>>>>>>>>
+finishedProductCount:3
+finishedProductCount:3
+finishedProductCount:3
