@@ -65,9 +65,10 @@ public class ConsumerThread implements Runnable {
 				}else if(checkIfProductAssembled(threadName,part) == ProductAssembled.YES){
 					localMapWorkers.put(threadName, new ArrayList<ProductPart>());
 				}else{
-					System.out.println("Product count exceeded, putting product back to conveyor:"+ part);
+					System.out.println("threadName:"+threadName+"Product count exceeded, putting product back to conveyor:"+ part);
 					synchronized(partsQueue){
 						partsQueue.put(part);
+						//Thread.currentThread().sleep(10*1000);
 					}
 				}
 			}else{
